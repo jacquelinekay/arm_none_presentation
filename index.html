@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+          <h3>Intro to Embedded Systems in C++</h3>
+          <p>Jackie Kay, 8/3/16
+          </p>
+        </section>
+
+				<section>
+          <section>
+          <p>What is an embedded computer?</p>
+            <img data-src="http://images.nvidia.com/content/tegra/embedded-systems/images/technical-specifications.jpg"></img>
+          </section>
+
+          <section>
+            <p>Form Factor</p>
+          </section>
+
+          <section>
+            <p>Compute Power</p>
+          </section>
+
+          <section>
+            <p>Software</p>
+          </section>
+
+          <section>
+            <p>Application</p>
+          </section>
+
+          <section>
+            <p>Spectrum</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <p>Getting started</p>
+          </section>
+
+          <section>
+            <p>Core components needed?</p>
+            <!-- editor, debugger, bootloader interface. give links and examples -->
+          </section>
+
+          <section>
+            <p>IDE</p>
+          </section>
+
+          <section>
+            <p>No-IDE</p>
+          </section>
+
+          <section>
+            <p>ARM GNU toolchain</p>
+          </section>
+
+          <section>
+            <p>gcc, gdb, objdump, etc.</p>
+            <p>assembly and ELF output examples</p>
+          </section>
+
+          <section>
+            <p>OpenOCD</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <p>What are we going to do with these tools?</p>
+          </section>
+
+          <section>
+            <p>Cross-platform networking library for IoT</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <p>Design Decisions</p>
+          </section>
+
+          <section>
+            <p>Space vs. time tradeoffs</p>
+          </section>
+
+          <section>
+            <p>Exceptions</p>
+          </section>
+
+          <section>
+            <p>Multithreading</p>
+          </section>
+
+          <section>
+            <p>Serialization</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <p>References</p>
+            <li>Icons from: thenounproject.com</li>
+          </section>
+        </section>
+
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
