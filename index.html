@@ -33,59 +33,93 @@
 				<section>
           <section>
           <p>What is an embedded computer?</p>
+          </section>
+
+          <section>
+            <p>Application?</p>
+            <img src="/home/jackie/code/arm_none_presentation/assets/watch.png" width=100></img>
+            <img src="/home/jackie/code/arm_none_presentation/assets/microwave.png" width=100></img>
+            <img src="/home/jackie/code/arm_none_presentation/assets/robot.png" width=100></img>
+            </section>
+
+          <section>
+            <p>Form Factor/peripherals?</p>
+            <img data-src="http://www.intel.com/content/dam/www/public/us/en/images/photography-consumer/rwd/937391-swift-canyon-short-nuc-frontangle-rwd.png.rendition.intel.web.416.234.png"></img>
             <img data-src="http://images.nvidia.com/content/tegra/embedded-systems/images/technical-specifications.jpg"></img>
           </section>
 
           <section>
-            <p>Form Factor</p>
-          </section>
-
-          <section>
-            <p>Compute Power</p>
-          </section>
-
-          <section>
-            <p>Software</p>
-          </section>
-
-          <section>
-            <p>Application</p>
-          </section>
-
-          <section>
-            <p>Spectrum</p>
+            <p>Compute Power?</p>
+            <ul>
+              <li>RAM: from 32K (Arduino Leonardo) to ~1GB (Odroid)</li>
+              <li>Flash memory: order of KBs</li>
+              <li>Instruction Set Architecture: x86, ARM (aarch, armv8), Thumb</li>
+              <li>Power consumption: </li>
+            </ul>
           </section>
         </section>
 
         <section>
           <section>
-            <p>Getting started</p>
+            <p>Getting started with embedded programming</p>
           </section>
 
           <section>
             <p>Core components needed?</p>
-            <!-- editor, debugger, bootloader interface. give links and examples -->
+            <img src="/home/jackie/code/arm_none_presentation/assets/editor.png" width=100></img>
+            <img src="/home/jackie/code/arm_none_presentation/assets/loader.png" width=100></img>
+            <img src="/home/jackie/code/arm_none_presentation/assets/bug.png" width=100></img>
           </section>
 
           <section>
             <p>IDE</p>
+            <img data-src="https://upload.wikimedia.org/wikipedia/en/d/d9/Arduino_1.0_IDE,_Ubuntu_11.10.png" width=300></img>
+            <img data-src="http://www.masters.com.pl/images/news/st-stm32-cube/stm32cube.jpg" width=500></img>
           </section>
 
           <section>
-            <p>No-IDE</p>
+            <p>No-IDE: build your own toolchain, for fun and time loss</p>
           </section>
 
           <section>
-            <p>ARM GNU toolchain</p>
+            <p>ARM GNU tools</p>
+            <ul>
+              <li>arm-none-eabi-gcc</li>
+              <li>arm-none-eabi-ld</li>
+              <li>arm-none-eabi-objdump</li>
+              <li>arm-none-eabi-gdb</li>
+            </ul>
           </section>
 
           <section>
-            <p>gcc, gdb, objdump, etc.</p>
-            <p>assembly and ELF output examples</p>
+            <p>Clang tools?</p>
+            <ul>
+              <li>http://clang.llvm.org/docs/CrossCompilation.html</li>
+              <li>Keil has proprietary "armclang"</li>
+              <li>Sanitizers, etc: Here be dragons</li>
+            </ul>
           </section>
 
           <section>
-            <p>OpenOCD</p>
+            <p>OpenOCD (on-chip debugger)</p>
+            <ul>
+              <li>Script board and JTAG interface configuration with TCL</li>
+              <li>openocd -f &lt;board.cfg&gt; -f &lt;interface.cfg&gt; -c "gdb_memory_map disable"</li>
+              <li>Connect with gdb remote interface: target remote localhost:3333</li>
+            </ul>
+          </section>
+
+          <section>
+            <p>Tooling example</p>
+          </section>
+          <section>
+            <p>arm-none-eabi-objdump -D -S test.out</p>
+          </section>
+          <section>
+            <p>arm-none-eabi-readelf -A test.out</p>
+          </section>
+          <section>
+            <p>Compiling with -fstack-usage</p>
           </section>
         </section>
 
@@ -93,42 +127,71 @@
           <section>
             <p>What are we going to do with these tools?</p>
           </section>
-
-          <section>
-            <p>Cross-platform networking library for IoT</p>
-          </section>
         </section>
 
         <section>
           <section>
-            <p>Design Decisions</p>
-          </section>
-
-          <section>
-            <p>Space vs. time tradeoffs</p>
+            <p>What about C++?</p>
           </section>
 
           <section>
             <p>Exceptions</p>
+            <ul>
+              <li>-fnoexceptions is a common suggestion for embedded development</li>
+              <li>TODO: benchmark to see if it's worthwhile (for now, see Patrice Roy's initial findings on exceptions: http://h-deb.clg.qc.ca/Sujets/Developpement/Exceptions-Costs.html)</li>
+            </ul>
           </section>
 
           <section>
             <p>Multithreading</p>
+            <ul>
+              <li>ARM C++ Libraries User Guide: "ARM Compiler 6 C++ libraries support the majority of C++11. The major limitation is that Thread support (<thread>) is not available." </li>
+              <li>So much for a portable thread abstraction...</li>
+            </ul>
+          </section>
+
+          <section>
+            <p>Containers</p>
+            <ul>
+              <li>std::array</li>
+              <li>std::vector</li>
+              <li>std::map?</li>
+            </ul>
+          </section>
+
+          <section>
+            <p>Allocators</p>
           </section>
 
           <section>
             <p>Serialization</p>
+          </section>
+
+          <section>
+            <p>Deserialization</p>
+            <ul>
+              <li>How to allocate representation of a deserialized object?</li>
+              <li>Union?</li>
+              <li>Variant?</li>
+              <li>Something else?</li>
+            </ul>
+          </section>
+
+          <section>
+            <p>End goal: composing platform-specific components with templates</p>
           </section>
         </section>
 
         <section>
           <section>
             <p>References</p>
+            <li>infocenter.arm.com</li>
+            <li>openocd.org</li>
+            <li>http://fun-tech.se/stm32/index.php</li>
+            <li>github.com/osrf/cmbml</li>
             <li>Icons from: thenounproject.com</li>
           </section>
         </section>
-
-
 
 			</div>
 		</div>
